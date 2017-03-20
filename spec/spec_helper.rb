@@ -7,12 +7,13 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require_relative './helpers/session.rb'
-require_relative '../app/models/space'
 
 Capybara.app = MakersBnB
 
 RSpec.configure do |config|
 
+  config.include SessionHelpers
+  
   # config.before(:suite) do
   #   DatabaseCleaner.strategy = :truncation
   #   DatabaseCleaner.clean_with(:truncation)

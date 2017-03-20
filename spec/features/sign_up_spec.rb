@@ -1,5 +1,17 @@
 feature "sign up" do
-  scenario "User signs ups, and increases user count by 1"
+  #
+  # full_name = "Ryan Chu"
+  # username = "Azntastic"
+  # email = "azntastic_ryan@hotmail.com"
+  # password = "123456"
 
-  expect{sign_up}.to
+  scenario "User signs ups, and increases user count by 1" do
+    visit '/'
+    fill_in :full_name, with: full_name
+    fill_in :username, with: username
+    fill_in :email, with: email
+    fill_in :password, with: password
+    click_button('Sign Up')
+  expect(User.count).to be(1)
+end
 end

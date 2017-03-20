@@ -1,9 +1,9 @@
 feature "sign up" do
-  #
-  # full_name = "Ryan Chu"
-  # username = "Azntastic"
-  # email = "azntastic_ryan@hotmail.com"
-  # password = "123456"
+  
+  full_name = "Ryan Chu"
+  username = "Azntastic"
+  email = "azntasticr_ryan@hotmail.com"
+  password = "123456"
 
   scenario "User signs ups, and increases user count by 1" do
     visit '/'

@@ -1,5 +1,5 @@
 require 'data_mapper'
-require './app'
+require_relative './app/app'
 
 namespace :db do
   desc 'non-destructive upgrade'

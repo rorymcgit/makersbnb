@@ -1,0 +1,15 @@
+.nav-bar{
+  height: 50px;
+  color: white;
+  background-color: black;
+  width: 100%;
+}
+.logo{
+  float: left;
+}
+.login{
+  float: right;
+}
+.logout{
+  float: right;
+}

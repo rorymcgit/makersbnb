@@ -12,7 +12,7 @@ feature "sign up" do
 
   scenario "user is logged in on signup" do
     sign_up
-    expect(current_path).to eq('/')
+    expect(current_path).to eq('/spaces')
     expect(page).to have_content("Welcome, Azntastic")
   end
 end

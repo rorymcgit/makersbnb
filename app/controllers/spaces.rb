@@ -1,7 +1,8 @@
 class MakersBnB < Sinatra::Base
 
   get '/spaces' do
-    'List of spaces'
+    @spaces = Space.all
+    erb :spaces
   end
 
 end

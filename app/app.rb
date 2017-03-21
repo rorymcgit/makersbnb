@@ -22,8 +22,21 @@ enable :sessions
   get '/sessions/new' do
     erb :login
   end
+
   post '/sessions' do
-    redirect '/spaces'  
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/spaces'
+    else
+      erb :'login'
+    end
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
 end

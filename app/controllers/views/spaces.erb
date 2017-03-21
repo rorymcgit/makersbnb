@@ -1,6 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+
+<% if @current_user %>
+  Welcome, <%=@current_user.full_name%>
+<% end %>
 </head>
 
   <body>

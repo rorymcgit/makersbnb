@@ -9,4 +9,8 @@ class Space
   property :from_date, DateTime
   property :to_date, DateTime
 
+  has n, :bookings
+
+  belongs_to :user
+
 end

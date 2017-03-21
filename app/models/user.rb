@@ -13,6 +13,8 @@ class User
   property :email,     String
   property :password_hash,  Text
 
+  has n, :spaces
+
   validates_confirmation_of :password
 
   def password=(password)

@@ -3,7 +3,8 @@ require 'dm-postgres-adapter'
 require 'bcrypt'
 
 class User
-
+  attr_reader :password
+  attr_accessor :password_confirmation
   include DataMapper::Resource
 
   property :id,        Serial
@@ -12,7 +13,7 @@ class User
   property :email,     String
   property :password_hash,  Text
 
-  attr_reader :password
+  validates_confirmation_of :password
 
   def password=(password)
     @password = password

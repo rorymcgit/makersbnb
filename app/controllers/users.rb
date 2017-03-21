@@ -6,7 +6,8 @@ class MakersBnB < Sinatra::Base
       full_name: params[:full_name],
       username: params[:username],
       email: params[:email],
-      password: params[:password]
+      password: params[:password],
+      password_confirmation: params[:confirm_password]
     )
 
   end

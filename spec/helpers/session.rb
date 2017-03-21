@@ -4,7 +4,8 @@ module SessionHelpers
     full_name: "Ryan Chu",
     username: "Azntastic",
     email: "azntastic_ryan@hotmail.com",
-    password: "123456"
+    password: "123456",
+    password_confirmation: "123456"
     )
   visit '/'
   fill_in :full_name, with: full_name
@@ -13,5 +14,5 @@ module SessionHelpers
   fill_in :password, with: password
   click_button('Sign Up')
   end
-  
+
 end

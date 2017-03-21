@@ -10,7 +10,14 @@ class User
   property :full_name, String
   property :username,  String
   property :email,     String
-  property :password,  String
+  property :password_hash,  Text
+
+  # attr_reader :password
+  # 
+  # def password=(password)
+  #   @password = password
+  #   self.password_hash = BCrypt::Password(password)
+  # end
 
   # has n, :links, :through => Resource
 end

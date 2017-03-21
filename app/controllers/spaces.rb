@@ -15,7 +15,8 @@ class MakersBnB < Sinatra::Base
     description: params[:description],
     price: params[:price],
     from_date: params[:from_date],
-    to_date: params[:to_date])
+    to_date: params[:to_date],
+    user_id: session[:user_id])
     redirect '/spaces'
   end
 

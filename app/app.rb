@@ -19,4 +19,11 @@ enable :sessions
     erb :index
   end
 
+  get '/sessions/new' do
+    erb :login
+  end
+  post '/sessions' do
+    redirect '/spaces'  
+  end
+
 end

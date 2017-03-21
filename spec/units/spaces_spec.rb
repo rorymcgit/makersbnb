@@ -18,5 +18,13 @@ describe Space do
     expect(space).to respond_to(:price)
   end
 
+  it 'responds to .from_date' do
+    expect(space).to respond_to(:from_date)
+  end
+
+  it 'responds to .to_date' do
+    expect(space).to respond_to(:to_date)
+  end
+
 
 end

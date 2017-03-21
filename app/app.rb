@@ -13,6 +13,8 @@ require_relative '../data_mapper_setup'
 
 class MakersBnB < Sinatra::Base
 
+enable :sessions
+
   get '/' do
     erb :index
   end

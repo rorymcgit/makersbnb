@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    Welcome, <%=session[:user_name]%>
   </head>
   <body>
   <form action="/users" method="POST">
@@ -8,6 +9,7 @@
   Username: <input type="text" name="username" /> <br/>
   Email: <input type="text" name="email" /> <br/>
   Password: <input type="text" name="password" /> <br/>
+  Confirm Password: <input type="text" name="confirm_password" /> <br/>
   <input type="submit" value="Sign Up" />
   </form>
   </body>

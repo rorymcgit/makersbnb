@@ -12,6 +12,7 @@ module SessionHelpers
   fill_in :username, with: username
   fill_in :email, with: email
   fill_in :password, with: password
+  fill_in :confirm_password, with: password_confirmation
   click_button('Sign Up')
   end
 

@@ -7,9 +7,12 @@ class MakersBnB < Sinatra::Base
       username: params[:username],
       email: params[:email],
       password: params[:password],
-      password_confirmation: params[:confirm_password]
+      password_confirmation: params[:confirm_password],
     )
 
+    session[:user_id] = @user.id
+    session[:user_name] = @user.username
+    redirect '/'
   end
 
 end

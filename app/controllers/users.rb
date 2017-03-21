@@ -12,7 +12,7 @@ class MakersBnB < Sinatra::Base
 
     session[:user_id] = @user.id
     session[:user_name] = @user.username
-    redirect '/'
+    redirect '/spaces'
   end
 
 end

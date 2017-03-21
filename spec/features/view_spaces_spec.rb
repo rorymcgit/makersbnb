@@ -22,7 +22,11 @@ feature "#Space" do
 
   scenario "displays the space's properties" do
     visit("/spaces")
-    expect(page).to have_content("Party House")
+    expect(page).to have_content("Name: Party House")
+    expect(page).to have_content("Description: Big house, 07544502382")
+    expect(page).to have_content("£9.99");
+    expect(page).to have_content("Available from: 05 July 2017")
+    expect(page).to have_content("Available to: 10 July 2017")
   end
 
 

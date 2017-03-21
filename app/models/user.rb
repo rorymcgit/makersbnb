@@ -12,12 +12,12 @@ class User
   property :email,     String
   property :password_hash,  Text
 
-  # attr_reader :password
-  # 
-  # def password=(password)
-  #   @password = password
-  #   self.password_hash = BCrypt::Password(password)
-  # end
+  attr_reader :password
+
+  def password=(password)
+    @password = password
+    self.password_hash = BCrypt::Password.create(password)
+  end
 
   # has n, :links, :through => Resource
 end

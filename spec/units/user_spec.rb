@@ -16,4 +16,9 @@ feature "user authentication" do
   end
 end
 
+  scenario 'It does not create a user with an invalid email' do 
+  expect{User.create(full_name: 'test', username: 'test', email: 'testtest.com',
+   password: '12345', password_confirmation: '12345')}.not_to change(User, :count)
+end 
+ 
 end

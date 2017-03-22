@@ -16,6 +16,7 @@ module SessionHelpers
   click_button('Sign Up')
   end
 
+
   def create_space(name: "Party House",
     description: "Big house, 07544502382",
     price: 9.99,

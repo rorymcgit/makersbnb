@@ -14,6 +14,7 @@ require_relative '../data_mapper_setup'
 
 
 class MakersBnB < Sinatra::Base
+use Rack::MethodOverride
 
 enable :sessions
 
@@ -34,6 +35,12 @@ enable :sessions
       erb :'login'
     end
   end
+
+  delete '/sessions' do 
+    session[:user_id] = nil
+    puts "Hello"
+    redirect '/spaces'
+  end 
 
   helpers do
     def current_user

@@ -14,7 +14,7 @@ require_relative '../data_mapper_setup'
 
 
 class MakersBnB < Sinatra::Base
-
+set :root, File.dirname(__FILE__)
 enable :sessions
 
   get '/' do

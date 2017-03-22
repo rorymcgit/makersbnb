@@ -10,3 +10,4 @@ gem 'sinatra'
 gem 'database_cleaner'
 gem 'rake'
 gem 'bcrypt'
+gem 'simplecov', :require => false, :group => :test

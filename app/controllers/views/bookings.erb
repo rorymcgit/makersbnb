@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+  <body>
+    <div>Here are your bookings, <%= current_user.full_name %></div>
+    <div><% @bookings.each do |booking| %>
+        <div><% if booking.user_id == current_user.id %>
+          <% bookers_spaces = Space.all(:id => booking.space_id) %>
+          <% bookers_spaces.each do |spc| %></br>
+            Name: <%= spc.name %></br>
+            Description: <%= spc.description %></br>
+            Price per night: £<%= spc.price %></br>
+            Requested from: <%= spc.from_date.strftime('%d %B %Y') %></br>
+            Requested to: <%= spc.to_date.strftime('%d %B %Y') %></br>
+            Confirmation status: <%= booking.confirmed %></br></br>
+            <% end %>
+          <% end %></div>
+      <% end %>
+    </div>
+  </body>
+</html>

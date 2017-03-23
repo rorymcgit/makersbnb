@@ -1,19 +1,23 @@
 Here are your requests, <%= current_user.full_name %></br></br>
 
 <% @all_my_spaces.each do |space| %>
-<% @bookings.each do |booking| %>
-  <% if booking.space_id == space.id %>
-  Name: <%=space.name%></br>
-  Description: <%= space.description %></br>
-  Price per night: £<%= space.price %></br>
-  Requested from: <%= space.from_date.strftime('%d %B %Y') %></br>
-  Requested to: <%= space.to_date.strftime('%d %B %Y') %></br>
-  Confirmation Status: <%= booking.confirmed %></br>
-  Requested by: <% @users.each do |user| %>
-                <% if booking.user_id == user.id %>
-                <%= user.full_name %></br></br>
-                <% end %>
-                <% end %>
-  <%end%>
-<%end%>
-<%end%>
+  <% @bookings.each do |booking| %>
+    <% if booking.space_id == space.id %>
+    Name: <%=space.name%></br>
+    Description: <%= space.description %></br>
+    Price per night: £<%= space.price %></br>
+    Requested from: <%= space.from_date.strftime('%d %B %Y') %></br>
+    Requested to: <%= space.to_date.strftime('%d %B %Y') %></br>
+    Confirmation Status: <%= booking.confirmed %></br>
+    Requested by:
+        <% @users.each do |user| %>
+          <% if booking.user_id == user.id %>
+          <%= user.full_name %></br></br>
+          <form method="POST" action="/requests/approve/<%= booking.space_id %>/<%= user.id %>">
+            <input type="submit" value="Approve">
+          </form>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

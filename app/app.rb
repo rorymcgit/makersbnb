@@ -38,19 +38,11 @@ enable :sessions
     end
   end
 
-  delete '/sessions' do 
+  delete '/sessions' do
     session[:user_id] = nil
     puts "Hello"
     redirect '/spaces'
-  end 
-
-  get '/test' do 
-    @bookings = Booking.all
-    @bookings.each do |booking| 
-      booking.update(:confirmed => true)
-    end 
-    "Hello MAte"
-  end 
+  end
 
   helpers do
     def current_user

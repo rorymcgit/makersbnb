@@ -7,7 +7,7 @@ module SessionHelpers
     password: "123456",
     password_confirmation: "123456"
     )
-    visit '/'
+    visit('/')
     fill_in :full_name, with: full_name
     fill_in :username, with: username
     fill_in :email, with: email
@@ -16,6 +16,25 @@ module SessionHelpers
     click_button('Sign Up')
   end
 
+  def sign_in(
+    email: "azntastic_ryan@hotmail.com",
+    password: "123456"
+    )
+    visit('sessions/new')
+    fill_in :email, with: email
+    fill_in :password, with: password
+    click_button('Login!')
+  end
+
+  def sign_out
+    visit('/spaces')
+    click_button('Sign out')
+  end
+
+  def book_space
+    visit('/spaces')
+    click_button('Book')
+  end
 
   def create_space(name: "Party House",
     description: "Big house, 07544502382",

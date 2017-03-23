@@ -35,7 +35,6 @@ enable :sessions
   end
 
   get '/' do
-    'WASSUP EMAIL'
     erb :index
   end
 

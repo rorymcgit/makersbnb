@@ -26,5 +26,7 @@ describe Space do
     expect(space).to respond_to(:to_date)
   end
 
-
+  it 'does not create space with invalid fields' do
+  expect{Space.create(name: '', description: '', price: '', from_date: '', to_date: '')}.not_to change(Space, :count)
+end
 end

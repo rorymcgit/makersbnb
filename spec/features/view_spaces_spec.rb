@@ -25,5 +25,28 @@ feature "#Space" do
     expect(page).to have_selector(:link_or_button, "Book")
   end
 
+  scenario 'cant see space if booking approved' do
+    sign_out
+    sign_up(full_name: "Booker Chu",
+    username: "booker",
+    email: "booker@booker.com",
+    password: "123456",
+    password_confirmation: "123456"
+    )
+    book_space
+    sign_out
+    sign_in
+    visit '/requests'
+    click_button 'Approve'
+    sign_out
+    sign_up(full_name: "Inspecter Chu",
+    username: "inspecter",
+    email: "inspecter@inspecter.com",
+    password: "123456",
+    password_confirmation: "123456"
+    )
+    visit '/spaces'
+    expect(page).not_to have_content 'Party House'
+  end
 
 end

@@ -11,3 +11,4 @@ gem 'database_cleaner'
 gem 'rake'
 gem 'bcrypt'
 gem 'simplecov', :require => false, :group => :test
+gem 'sinatra-flash'

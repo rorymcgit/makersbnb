@@ -19,11 +19,13 @@ feature "sign up" do
     sign_up
     sign_up
     # expect(current_path).not_to eq('/spaces')
-    expect(page).not_to have_content("Welcome, Azntastic")
+    # expect(page).not_to have_content("Welcome, Azntastic")
+    expect(page).to have_content("Email is already taken")
   end
 
-  scenario 'Confirmation password is wrong' do 
+  scenario 'Confirmation password is wrong' do
     sign_up(password: '123456', password_confirmation: '123')
-    expect(page).not_to have_content("Welcome, Azntastic")
-  end   
+    # expect(page).not_to have_content("Welcome, Azntastic")
+    expect(page).to have_content("Password does not match the confirmation")
+  end
 end

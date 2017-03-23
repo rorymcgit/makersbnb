@@ -3,11 +3,11 @@ class Space
   include DataMapper::Resource
 
   property :id, Serial
-  property :name, String
-  property :description, String
-  property :price, Float
-  property :from_date, DateTime
-  property :to_date, DateTime
+  property :name, String, :required => true
+  property :description, String, :required => true
+  property :price, Float, :required => true
+  property :from_date, DateTime, :required => true
+  property :to_date, DateTime, :required => true
 
   has n, :bookings
 

@@ -1,3 +1,6 @@
+<% if flash[:errors] %>
+<%= flash[:errors] %>
+<% end %>
 <form method="post" name="login" action="/sessions">
   <label for="email" name="email"><input type="email" name="email" required></label>
   <label for="password" name="password"><input type="password" name="password" required></label>

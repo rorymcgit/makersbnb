@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= 'development'
 
 require 'data_mapper'
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'database_cleaner'
 require 'date'
 require_relative 'controllers/users'
@@ -15,7 +16,7 @@ require_relative '../data_mapper_setup'
 
 
 class MakersBnB < Sinatra::Base
-
+register Sinatra::Flash
 set :root, File.dirname(__FILE__)
 use Rack::MethodOverride
 enable :sessions
@@ -34,15 +35,16 @@ enable :sessions
       session[:user_id] = user.id
       redirect '/spaces'
     else
-      erb :'login'
+      flash.now[:errors] = ['Invalid email address or password']
+      erb :login
     end
   end
 
-  delete '/sessions' do 
+  delete '/sessions' do
     session[:user_id] = nil
     puts "Hello"
     redirect '/spaces'
-  end 
+  end
 
   helpers do
     def current_user

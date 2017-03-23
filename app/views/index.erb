@@ -8,9 +8,6 @@
   </head>
   <body>
   <div class="nav-bar"></div>
-  <% if flash[:errors] %>
-  <%= flash[:errors] %>
-  <% end %>
   <form action="/users" method="POST">
   Full Name: <input type="text" name="full_name" required/> <br/>
   Username: <input type="text" name="username" required/> <br/>

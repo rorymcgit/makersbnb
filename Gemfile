@@ -12,3 +12,4 @@ gem 'rake'
 gem 'bcrypt'
 gem 'simplecov', :require => false, :group => :test
 gem 'sinatra-flash'
+gem 'sinatra-partial'

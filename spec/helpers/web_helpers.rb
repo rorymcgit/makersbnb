@@ -17,6 +17,16 @@ module SessionHelpers
   end
 
 
+  def sign_in(
+    email: "azntastic_ryan@hotmail.com",
+    password: "123456"
+    )
+    visit 'sessions/new'
+    fill_in :email, with: email
+    fill_in :password, with: password
+    click_button ("Login!")
+  end
+
   def create_space(name: "Party House",
     description: "Big house, 07544502382",
     price: 9.99,

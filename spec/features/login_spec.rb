@@ -15,4 +15,11 @@ feature "Login Specs" do
     click_button('Login!')
     expect(current_path).to eq('/spaces')
   end
+
+  scenario 'user logs in with an incorrect password' do
+    sign_up
+    sign_in(password: 'qweerty')
+    expect(page).to have_content('Invalid email address or password')
+  end
+
 end

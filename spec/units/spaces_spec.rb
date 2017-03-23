@@ -27,6 +27,6 @@ describe Space do
   end
 
   it 'does not create space with invalid fields' do
-  expect{Space.create(name: '', description: '', price: '', from_date: '', to_date: '')}.not_to change(Space, :count)
-end
+    expect{Space.create(name: '', description: '', price: '50', from_date: DateTime.new(2017, 7, 10), to_date: DateTime.new(2017, 7, 11), user_id: 1)}.not_to change(Space, :count)
+  end
 end

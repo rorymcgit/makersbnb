@@ -21,6 +21,18 @@ set :root, File.dirname(__FILE__)
 use Rack::MethodOverride
 enable :sessions
 
+  configure do
+    :via => smtp,
+    :via_options => {
+        :address => 'smtp.sendgrid.net',
+        :port => '587',
+        :domain => 'https://partybnb.herokuapp.com/',
+        :user_name => ENV['SENDGRID_USERNAME'],
+        :password => ENV['SENDGRID_PASSWORD'],
+        :authentication => :plain,
+        :enable_starttls_auto => true
+  end
+
   get '/' do
     erb :index
   end

@@ -16,7 +16,7 @@ class MakersBnB < Sinatra::Base
       Pony.mail(
       to: 'azntastic_ryan@hotmail.com',
       from: 'toobusypartying@partybnb.com',
-      subject: 'Thanks!'
+      subject: 'Thanks!',
       body: 'for signing up to be a BIG LAD. PARTAY ONNNNN.'
       )
     else

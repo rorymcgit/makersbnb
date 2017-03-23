@@ -13,7 +13,8 @@ require_relative 'models/space'
 require_relative 'models/user'
 require_relative 'models/booking'
 require_relative '../data_mapper_setup'
-
+require 'dotenv'
+require 'pony'
 
 class MakersBnB < Sinatra::Base
 register Sinatra::Flash
@@ -23,7 +24,8 @@ enable :sessions
 
   configure do
     Dotenv.load('../.env')
-    :via => smtp,
+    Pony.options = {
+    :via => :smtp,
     :via_options => {
         :address => 'smtp.sendgrid.net',
         :port => '587',
@@ -31,7 +33,8 @@ enable :sessions
         :user_name => ENV['SENDGRID_USERNAME'],
         :password => ENV['SENDGRID_PASSWORD'],
         :authentication => :plain,
-        :enable_starttls_auto => true
+        :enable_starttls_auto => true}
+      }
   end
 
   get '/' do

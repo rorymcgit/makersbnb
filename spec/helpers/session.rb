@@ -16,16 +16,6 @@ module SessionHelpers
     click_button('Sign Up')
   end
 
-  def sign_in(
-    email: "azntastic_ryan@hotmail.com",
-    password: "123456"
-    )
-    visit('sessions/new')
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button('Login!')
-  end
-
   def sign_out
     visit('/spaces')
     click_button('Sign out')

@@ -6,7 +6,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/bookings' do
-    "Here are your bookings!"
+    @bookings = Booking.all
+    erb :bookings
   end
 
 end

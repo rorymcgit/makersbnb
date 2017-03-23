@@ -22,6 +22,7 @@ use Rack::MethodOverride
 enable :sessions
 
   configure do
+    Dotenv.load('../.env')
     :via => smtp,
     :via_options => {
         :address => 'smtp.sendgrid.net',

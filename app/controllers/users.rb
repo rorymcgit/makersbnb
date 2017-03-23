@@ -13,6 +13,12 @@ class MakersBnB < Sinatra::Base
       session[:user_id] = @user.id
       session[:user_name] = @user.username
       redirect '/spaces'
+      Pony.mail(
+      to: 'azntastic_ryan@hotmail.com',
+      from: 'toobusypartying@partybnb.com',
+      subject: 'Thanks!'
+      body: 'for signing up to be a BIG LAD. PARTAY ONNNNN.'
+      )
     else
       flash.next[:errors] = @user.errors.full_messages
       redirect '/'

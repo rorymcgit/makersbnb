@@ -14,7 +14,9 @@ require_relative '../data_mapper_setup'
 
 
 class MakersBnB < Sinatra::Base
+
 set :root, File.dirname(__FILE__)
+use Rack::MethodOverride
 enable :sessions
 
   get '/' do
@@ -34,6 +36,12 @@ enable :sessions
       erb :'login'
     end
   end
+
+  delete '/sessions' do 
+    session[:user_id] = nil
+    puts "Hello"
+    redirect '/spaces'
+  end 
 
   helpers do
     def current_user

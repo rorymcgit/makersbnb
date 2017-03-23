@@ -7,10 +7,11 @@ feature "Login Specs" do
   end
 
   scenario 'user logs in and sees spaces ' do
-    User.create(email: 'test@test.com', password: '12345', password_confirmation: '12345')
+    # User.create(email: 'test@test.com', password: '12345', password_confirmation: '12345')
+    sign_up
     visit '/sessions/new'
-    fill_in :email, with: 'test@test.com'
-    fill_in :password, with: '12345'
+    fill_in :email, with: 'azntastic_ryan@hotmail.com'
+    fill_in :password, with: '123456'
     click_button('Login!')
     expect(current_path).to eq('/spaces')
   end

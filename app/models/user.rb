@@ -8,14 +8,16 @@ class User
   include DataMapper::Resource
 
   property :id,        Serial
-  property :full_name, String
-  property :username,  String
-  property :email,     String
+  property :full_name, String, required: true
+  property :username,  String, required: true, unique: true
+  property :email,     String, unique: true, required: true
   property :password_hash,  Text
 
   has n, :spaces
 
   validates_confirmation_of :password
+  validates_presence_of :password
+  validates_format_of :email, as: :email_address
 
   def password=(password)
     @password = password

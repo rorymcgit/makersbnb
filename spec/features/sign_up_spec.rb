@@ -15,4 +15,15 @@ feature "sign up" do
     expect(current_path).to eq('/spaces')
     expect(page).to have_content("Welcome, Azntastic")
   end
+  scenario 'if user email already taken' do
+    sign_up
+    sign_up
+    # expect(current_path).not_to eq('/spaces')
+    expect(page).not_to have_content("Welcome, Azntastic")
+  end
+
+  scenario 'Confirmation password is wrong' do 
+    sign_up(password: '123456', password_confirmation: '123')
+    expect(page).not_to have_content("Welcome, Azntastic")
+  end   
 end

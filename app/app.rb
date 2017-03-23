@@ -44,6 +44,14 @@ enable :sessions
     redirect '/spaces'
   end 
 
+  get '/test' do 
+    @bookings = Booking.all
+    @bookings.each do |booking| 
+      booking.update(:confirmed => true)
+    end 
+    "Hello MAte"
+  end 
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])

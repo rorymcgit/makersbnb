@@ -1,6 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-<head>
+
 
 <% if current_user %>
   Welcome, <%= current_user.username %>
@@ -8,14 +6,7 @@
  <% if !current_user %>
   you have been signed out
   <% end %>
-</head>
 
-  <body>
-  <form action="/sessions" method="POST">
-   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Sign out">
-  </form>
-  
     <h1>'List of spaces'</h1>
     <div>
       <% @spaces.each do |space| %>
@@ -32,5 +23,3 @@
       </div>
       <% end %>
     </div>
-  </body>
-</html>

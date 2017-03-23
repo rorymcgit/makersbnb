@@ -1,13 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-      <link rel="stylesheet" type="text/css" href="/index_style.css">
   <% if current_user %>
     Welcome, <%= current_user.username %>
   <% end %>
-  </head>
-  <body>
-  <div class="nav-bar"></div>
   <form action="/users" method="POST">
   Full Name: <input type="text" name="full_name" required/> <br/>
   Username: <input type="text" name="username" required/> <br/>
@@ -16,5 +9,3 @@
   Confirm Password: <input type="password" name="confirm_password" required/> <br/>
   <input type="submit" value="Sign Up" />
   </form>
-  </body>
-</html>

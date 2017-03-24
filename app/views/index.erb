@@ -1,11 +1,45 @@
-  <% if current_user %>
-    Welcome, <%= current_user.username %>
-  <% end %>
-  <form action="/users" method="POST">
-  Full Name: <input type="text" name="full_name" required/> <br/>
-  Username: <input type="text" name="username" required/> <br/>
-  Email: <input type="text" name="email" required/> <br/>
-  Password: <input type="password" name="password" required/> <br/>
-  Confirm Password: <input type="password" name="confirm_password" required/> <br/>
-  <input type="submit" value="Sign Up" />
-  </form>
+<% if current_user %>
+  Welcome, <%= current_user.username %>
+<% end %>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img class="d-block img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/1/18/Hong_Kong_Night_Skyline.jpg" alt="First slide" style="width:3000px;height:1000px">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-115232.jpg" alt="Second slide" style="width:3000px;height:1000px">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="http://www.socwall.com/images/wallpapers/36339-1920x1200.jpg" alt="Third slide" style="width:3000px;height:1000px">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="http://cdnfiles.hdrcreme.com/42428/original/new-york-city-twilight.jpg?1426749401" alt="Fourth slide" style="width:3000px;height:1000px">
+    </div>
+  </div>
+</div>
+
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="icon-prev"></span>
+</a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="icon-next"></span>
+</a>
+<!--
+<div class="mainPitch" style="position:absolute; top:50px;">
+      <div class="container" id="sign-up">
+        <div class="row">
+          <div class="col-xs-6" style="text-align:center;">
+            <form action="/users" method="POST">
+              Full Name: <input type="text" name="full_name" required/> <br/>
+              Username: <input type="text" name="username" required/> <br/>
+              Email: <input type="text" name="email" required/> <br/>
+              Password: <input type="password" name="password" required/> <br/>
+              Confirm Password: <input type="password" name="confirm_password" required/> <br/>
+              <input type="submit" value="Sign Up" />
+            </form>
+
+          </div>
+        </div>
+      </div>
+</div> -->

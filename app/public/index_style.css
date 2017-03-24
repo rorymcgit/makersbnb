@@ -1,7 +1,7 @@
 .nav-bar{
   height: 50px;
   color: white;
-  background-color: black;
+  background-color: crimson;
   width: 100%;
 }
 .logo{
@@ -12,4 +12,18 @@
 }
 .logout{
   float: right;
+}
+.a{
+background: transparent;
+color: white;
+border: none;
+height: 100%;
+width: 100%;
+vertical-align: middle;
+}
+
+.a1{
+  margin: 0px;
+  padding: 0px;
+  height: 38px;
 }

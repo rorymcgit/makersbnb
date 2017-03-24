@@ -5,6 +5,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'database_cleaner'
 require 'date'
+require 'sinatra/partial'
 require_relative 'controllers/users'
 require_relative 'controllers/spaces'
 require_relative 'controllers/bookings'
@@ -17,9 +18,12 @@ require_relative '../data_mapper_setup'
 
 class MakersBnB < Sinatra::Base
 register Sinatra::Flash
+register Sinatra::Partial
 set :root, File.dirname(__FILE__)
+set :partial_template_engine, :erb
 use Rack::MethodOverride
 enable :sessions
+enable :partial_underscores
 
   get '/' do
     erb :index
@@ -42,7 +46,6 @@ enable :sessions
 
   delete '/sessions' do
     session[:user_id] = nil
-    puts "Hello"
     redirect '/spaces'
   end
 

@@ -18,44 +18,20 @@
 
     <h1>'List of spaces'</h1>
     <div>
-      <% if @bookings.length > 0 %>
-        <% @spaces.each do |space| %>
-          <% @bookings.each do |booking| %>
-            <% if ((space.id == booking.space_id) && (booking.confirmed == true)) %>
-              <div class="">
-                There arn't any spaces left to book
-              </div>
-              <% else %>
-                <div>
-                  Name: <%= space.name %></br>
-                  Description: <%= space.description %></br>
-                  Price per night: £<%= space.price %></br>
-                  Available from: <%= space.from_date.strftime('%d %B %Y') %></br>
-                  Available to: <%= space.to_date.strftime('%d %B %Y') %></br>
-                    <form method="POST" action="/bookings/new/<%= space.id %>">
-                      <input type="submit" value="Book">
-                    </form>
-                      </br>
-                </div>
-              <% end %>   <!--  if  -->
-          <% end %>   <!-- @bookings  -->
-        <% end %>   <!-- @spaces-->
-        <% else %>
-          <% @spaces.each do |space| %>
-            <div>
-              Name: <%= space.name %></br>
-              Description: <%= space.description %></br>
-              Price per night: £<%= space.price %></br>
-              Available from: <%= space.from_date.strftime('%d %B %Y') %></br>
-              Available to: <%= space.to_date.strftime('%d %B %Y') %></br>
-                <form method="POST" action="/bookings/new/<%= space.id %>">
-                  <input type="submit" value="Book">
-                </form>
-                  </br>
-            </div>
-          <% end %>   <!-- @spaces-->
-        <% end %>   <!-- Main if  -->
-
+      <% @spaces.each do |space| %>
+        <% unless space.bookings.any? { |booking| booking.confirmed } %>
+          <div>
+            Name: <%= space.name %></br>
+            Description: <%= space.description %></br>
+            Price per night: £<%= space.price %></br>
+            Available from: <%= space.from_date.strftime('%d %B %Y') %></br>
+            Available to: <%= space.to_date.strftime('%d %B %Y') %></br>
+              <form method="POST" action="/bookings/new/<%= space.id %>">
+                <input type="submit" value="Book">
+              </form></br>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </body>
 </html>

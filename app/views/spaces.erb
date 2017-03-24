@@ -1,7 +1,7 @@
 
 
 <% if current_user %>
-  Welcome, <%= current_user.username %>
+  You are signed in, <%= current_user.username %>
 <% end %>
 <% if !current_user %>
   You have been signed out.
@@ -16,6 +16,7 @@
           <span class="space-listing">Price per night:</span> £<%= space.price %>0</br>
           <span class="space-listing">Available from:</span> <%= space.from_date.strftime('%d %B %Y') %></br>
           <span class="space-listing">Available to:</span> <%= space.to_date.strftime('%d %B %Y') %>
+          <span class="pic"><img src="http://i.imgur.com/AXqcaLF.png"></span>
           <% if current_user %>
             <div class="mt-1 centre-button">
               <form method="POST" action="/bookings/new/<%= space.id %>">

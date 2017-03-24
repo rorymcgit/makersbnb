@@ -7,7 +7,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/new' do
-    erb :new_space
+    erb :new
   end
 
   post '/spaces/new' do
@@ -21,7 +21,7 @@ class MakersBnB < Sinatra::Base
       redirect '/spaces'
     else
       flash.now[:errors] = space.errors.full_messages
-      erb :new_space
+      erb :new
     end
   end
 

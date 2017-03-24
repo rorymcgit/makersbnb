@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= 'development'
 require 'data_mapper'
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require 'database_cleaner'
 require 'date'
 require_relative 'controllers/users'
@@ -17,6 +18,7 @@ require 'dotenv'
 require 'pony'
 
 class MakersBnB < Sinatra::Base
+register Sinatra::Partial
 register Sinatra::Flash
 set :root, File.dirname(__FILE__)
 use Rack::MethodOverride

@@ -14,3 +14,4 @@ gem 'simplecov', :require => false, :group => :test
 gem 'sinatra-flash'
 gem 'pony'
 gem 'dotenv'
+gem 'sinatra-partial'

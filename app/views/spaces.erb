@@ -6,20 +6,20 @@
  <% if !current_user %>
   you have been signed out
   <% end %>
-
     <h1>'List of spaces'</h1>
     <div>
       <% @spaces.each do |space| %>
-      <div>
-      Name: <%= space.name %></br>
-      Description: <%= space.description %></br>
-      Price per night: £<%= space.price %></br>
-      Available from: <%= space.from_date.strftime('%d %B %Y') %></br>
-      Available to: <%= space.to_date.strftime('%d %B %Y') %></br>
-      <form method="POST" action="/bookings/new/<%= space.id %>">
-        <input type="submit" value="Book">
-      </form>
-    </br>
-      </div>
+        <% unless space.bookings.any? { |booking| booking.confirmed } %>
+          <div>
+            Name: <%= space.name %></br>
+            Description: <%= space.description %></br>
+            Price per night: £<%= space.price %></br>
+            Available from: <%= space.from_date.strftime('%d %B %Y') %></br>
+            Available to: <%= space.to_date.strftime('%d %B %Y') %></br>
+              <form method="POST" action="/bookings/new/<%= space.id %>">
+                <input type="submit" value="Book">
+              </form></br>
+          </div>
+        <% end %>
       <% end %>
     </div>

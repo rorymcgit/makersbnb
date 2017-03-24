@@ -19,4 +19,12 @@ feature "view requests" do
     expect(page).to have_content("Here are your requests, Ryan Chu")
     expect(page).to have_content("Name: Party House")
   end
+
+  scenario 'user who is not logged in cannot visit requests page' do
+    visit('/requests')
+    expect(page).not_to have_current_path('/requests')
+    expect(page).to have_current_path('/sessions/new')
+    expect(page).to have_content("Please sign in")
+  end
+
 end

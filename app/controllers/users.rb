@@ -11,7 +11,6 @@ class MakersBnB < Sinatra::Base
     )
     if @user.save
       session[:user_id] = @user.id
-      session[:user_name] = @user.username
       redirect '/spaces'
     else
       flash.next[:errors] = @user.errors.full_messages

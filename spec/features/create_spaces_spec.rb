@@ -25,4 +25,17 @@ feature 'can create spaces' do
     expect(page).to have_content "To date must be of type DateTime"
   end
 
+  scenario 'user cannot create a space with an invalid media url' do
+    sign_up
+    create_space(media_url: 'not a url')
+    expect(page).to have_content "Media has an invalid format"
+  end
+
+  scenario 'user who is not logged in cannot create a space' do
+    visit('/spaces/new')
+    expect(page).not_to have_current_path('/spaces/new')
+    expect(page).to have_current_path('/sessions/new')
+    expect(page).to have_content("Please sign in")
+  end
+
 end

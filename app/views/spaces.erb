@@ -1,25 +1,29 @@
 
 
 <% if current_user %>
-  Welcome, <%= current_user.username %>
+  You are signed in, <%= current_user.username %>
 <% end %>
- <% if !current_user %>
-  you have been signed out
-  <% end %>
-    <h1>'List of spaces'</h1>
-    <div>
-      <% @spaces.each do |space| %>
-        <% unless space.bookings.any? { |booking| booking.confirmed } %>
-          <div>
-            Name: <%= space.name %></br>
-            Description: <%= space.description %></br>
-            Price per night: £<%= space.price %></br>
-            Available from: <%= space.from_date.strftime('%d %B %Y') %></br>
-            Available to: <%= space.to_date.strftime('%d %B %Y') %></br>
+<% if !current_user %>
+  You have been signed out.
+<% end %>
+  <h1 class="header">Available spaces</h1>
+  <div></br>
+    <% @spaces.each do |space| %>
+      <% unless space.bookings.any? { |booking| booking.confirmed } %>
+        <div class="box">
+          <span class="space-listing">Name:</span> <%= space.name %></br>
+          <span class="space-listing">Description:</span> <%= space.description %></br>
+          <span class="space-listing">Price per night:</span> £<%= space.price %>0</br>
+          <span class="space-listing">Available from:</span> <%= space.from_date.strftime('%d %B %Y') %></br>
+          <span class="space-listing">Available to:</span> <%= space.to_date.strftime('%d %B %Y') %>
+          <span class="pic"><img src="http://i.imgur.com/AXqcaLF.png"></span>
+          <% if current_user %>
+            <div class="mt-1 centre-button">
               <form method="POST" action="/bookings/new/<%= space.id %>">
-                <input type="submit" value="Book">
-              </form></br>
-          </div>
-        <% end %>
+              <input type="submit" value="Book">
+            </form></div>
+          <% end %>
+        </div></br>
       <% end %>
-    </div>
+    <% end %>
+  </div>

@@ -18,6 +18,6 @@ feature "View bookings" do
     expect(page).to have_content("Price per night: £9.99")
     expect(page).to have_content("Requested from: 05 July 2017")
     expect(page).to have_content("Requested to: 10 July 2017")
-    expect(page).to have_content("Confirmation status: false")
+    expect(page).to have_content("This booking request has not been accepted yet.")
   end
 end

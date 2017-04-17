@@ -3,18 +3,20 @@
   <body>
     <div>Here are your bookings, <%= current_user.full_name %></div>
     <div><% @bookings.each do |booking| %>
-        <div><% if booking.user_id == current_user.id %>
+        <div><% if booking.user_id == current_user.id %></br>
+          <div class="box">
           <% bookers_spaces = Space.all(:id => booking.space_id) %>
           <% bookers_spaces.each do |spc| %></br>
-            Name: <%= spc.name %></br>
-            Description: <%= spc.description %></br>
-            Price per night: £<%= spc.price %></br>
-            Requested from: <%= spc.from_date.strftime('%d %B %Y') %></br>
-            Requested to: <%= spc.to_date.strftime('%d %B %Y') %></br>
-            Confirmation status: <%= booking.confirmed %></br></br>
-            <% end %>
+            <span class="space-listing">Name:</span> <%= spc.name %></br>
+            <span class="space-listing">Description:</span> <%= spc.description %></br>
+            <span class="space-listing">Price per night:</span> £<%= spc.price %></br>
+            <span class="space-listing">Requested from:</span> <%= spc.from_date.strftime('%d %B %Y') %></br>
+            <span class="space-listing">Requested to:</span> <%= spc.to_date.strftime('%d %B %Y') %></br>
+            <% if booking.confirmed %></br><div class="conf-true">This booking has been confirmed by the owner.</div></br>
+            <% else %></br><div class="conf-false">This booking request has not been accepted yet.</div></br>
+              <% end %></div>
+            <% end %></div>
           <% end %></div>
       <% end %>
-    </div>
   </body>
 </html>

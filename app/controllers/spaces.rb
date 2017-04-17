@@ -7,7 +7,6 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/new' do
-
     erb :new
   end
 

@@ -1,15 +1,16 @@
-Here are your requests, <%= current_user.full_name %></br></br>
+Here are your requests for your spaces, <%= current_user.full_name %></br></br>
 
 <% @all_my_spaces.each do |space| %>
   <% @bookings.each do |booking| %>
     <% if booking.space_id == space.id %>
-    Name: <%=space.name%></br>
-    Description: <%= space.description %></br>
-    Price per night: £<%= space.price %></br>
-    Requested from: <%= space.from_date.strftime('%d %B %Y') %></br>
-    Requested to: <%= space.to_date.strftime('%d %B %Y') %></br>
-    Confirmation Status: <%= booking.confirmed %></br>
-    Requested by:
+    <div class="box">
+    <span class="space-listing">Name:</span> <%=space.name%></br>
+    <span class="space-listing">Description:</span> <%= space.description %></br>
+    <span class="space-listing">Price per night:</span> £<%= space.price %></br>
+    <span class="space-listing">Requested from:</span> <%= space.from_date.strftime('%d %B %Y') %></br>
+    <span class="space-listing">Requested to:</span> <%= space.to_date.strftime('%d %B %Y') %></br>
+    <span class="space-listing">Confirmation Status:</span> <%= booking.confirmed %></br>
+    <span class="space-listing">Requested by:</span>
         <% @users.each do |user| %>
           <% if booking.user_id == user.id %>
           <%= user.full_name %></br></br>
@@ -18,6 +19,6 @@ Here are your requests, <%= current_user.full_name %></br></br>
           </form>
         <% end %>
       <% end %>
-    <% end %>
-  <% end %>
+    <% end %></div>
+  <% end %></br>
 <% end %>

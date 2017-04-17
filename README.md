@@ -9,6 +9,7 @@ This project is a clone of Airbnb with functionality such as:
 
 View the website live on Heroku https://partybnb.herokuapp.com/
 
+---
 
 #### Technologies used:
 - Ruby

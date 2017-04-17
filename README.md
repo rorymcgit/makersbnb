@@ -5,7 +5,10 @@ This project is a clone of Airbnb with functionality such as:
 - View available spaces (while logged in or as an anonymous user)
 - List a space for others to book
 - View requests made for your spaces and confirm them
-- View your bookings and their confirmation statuses
+- View your bookings and their confirmation statuses  
+
+View the website live on Heroku https://partybnb.herokuapp.com/
+
 
 #### Technologies used:
 - Ruby
@@ -28,5 +31,3 @@ $ createdb makersbnb_test
 ```
 - Run ```rackup``` to auto-upgrade and start server
 - In your browser, visit http://localhost:9292/
-
-View the website live on Heroku https://partybnb.herokuapp.com/

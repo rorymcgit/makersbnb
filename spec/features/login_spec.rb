@@ -12,7 +12,7 @@ feature "Login Specs" do
     visit '/sessions/new'
     fill_in :email, with: 'azntastic_ryan@hotmail.com'
     fill_in :password, with: '123456'
-    click_button('Login!')
+    click_button('Log In')
     expect(current_path).to eq('/spaces')
   end
 

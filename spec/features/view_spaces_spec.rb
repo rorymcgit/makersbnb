@@ -12,7 +12,7 @@ feature "#Space" do
 
   scenario "user can visit spaces page" do
     visit("/spaces")
-    expect(page).to have_content("List of spaces")
+    expect(page).to have_content("Available spaces")
   end
 
   scenario "displays the space's properties" do

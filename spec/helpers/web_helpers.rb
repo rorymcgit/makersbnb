@@ -40,7 +40,8 @@ module SessionHelpers
     description: "Big house, 07544502382",
     price: 9.99,
     from_date: DateTime.new(2017, 7, 5),
-    to_date: DateTime.new(2017, 7, 10)
+    to_date: DateTime.new(2017, 7, 10),
+    media_url: 'http://www.animage.com'
     )
 
     visit('/spaces/new')
@@ -49,6 +50,7 @@ module SessionHelpers
     fill_in :price, with: price
     fill_in :from_date, with: from_date
     fill_in :to_date, with: to_date
+    fill_in :media_url, with: media_url
     click_button("List Space")
   end
 

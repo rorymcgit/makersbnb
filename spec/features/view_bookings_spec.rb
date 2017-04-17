@@ -20,4 +20,11 @@ feature "View bookings" do
     expect(page).to have_content("Requested to: 10 July 2017")
     expect(page).to have_content("This booking request has not been accepted yet.")
   end
+
+  scenario 'user who is not logged in cannot visit bookings page' do
+    visit('/bookings')
+    expect(page).not_to have_current_path('/bookings')
+    expect(page).to have_current_path('/sessions/new')
+    expect(page).to have_content("Please sign in")
+  end
 end

@@ -2,12 +2,16 @@ class MakersBnB < Sinatra::Base
 
   get '/spaces' do
     @spaces = Space.all
-    @bookings = Booking.all
     erb :spaces
   end
 
   get '/spaces/new' do
-    erb :new
+    if !current_user
+      flash.next[:errors] = "Please sign in"
+      redirect '/sessions/new'
+    else
+      erb :new
+    end
   end
 
   post '/spaces/new' do
@@ -16,7 +20,7 @@ class MakersBnB < Sinatra::Base
     price: params[:price],
     from_date: params[:from_date],
     to_date: params[:to_date],
-    user_id: session[:user_id])
+    user_id: current_user.id, media: params[:media_url] )
     if space.save
       redirect '/spaces'
     else

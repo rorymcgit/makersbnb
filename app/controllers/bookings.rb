@@ -6,8 +6,13 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/bookings' do
-    @bookings = Booking.all
-    erb :bookings
+    if !current_user
+      flash.next[:errors] = "Please sign in"
+      redirect '/sessions/new'
+    else
+      @bookings = Booking.all
+      erb :bookings
+    end
   end
 
 end

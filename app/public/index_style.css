@@ -52,6 +52,7 @@
   margin: auto;
   width: 50%;
   padding: 10px;
+  text-align: left;
 }
 
 .conf-true{
@@ -102,6 +103,10 @@ input{
 }
 
 .pic{
-    display: block;
-    float: right;
+  display: block;
+  float: right;
+}
+
+.new-space{
+  float: right;
 }

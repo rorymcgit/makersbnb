@@ -12,7 +12,7 @@ feature "View bookings" do
     visit('/spaces')
     click_button("Book")
     expect(current_path).to eq('/bookings')
-    expect(page).to have_content("Here are your bookings, Booker")
+    expect(page).to have_content("Here are your bookings, Booking_guy")
     expect(page).to have_content("Name: Party House")
     expect(page).to have_content("Description: Big house, 07544502382")
     expect(page).to have_content("Price per night: £9.99")

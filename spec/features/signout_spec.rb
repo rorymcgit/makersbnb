@@ -3,7 +3,7 @@
   scenario 'it signs out the user when button click Sign out' do
     sign_up
     click_button 'Sign out'
-    expect(page).to have_content 'You have been signed out.'
+    expect(page).to have_content 'You are not logged in.'
     end
 
   end

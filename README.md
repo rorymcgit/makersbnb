@@ -1,4 +1,4 @@
-# partyBnB [![Build Status](https://travis-ci.org/rorymcgit/makersbnb.svg?branch=master)](https://travis-ci.org/rorymcgit/makersbnb)
+# partyBnB
 
 This project is a clone of Airbnb with functionality such as:
 - Create a user account
